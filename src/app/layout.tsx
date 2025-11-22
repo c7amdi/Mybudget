@@ -5,11 +5,24 @@ import React from 'react';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
-import { FirebaseClientProvider, useAuth, useFirebase } from '@/firebase';
+import { FirebaseClientProvider } from '@/firebase';
 import { TopNav } from '@/components/layout/top-nav';
 import { LanguageProvider } from '@/context/language-context';
 import { ThemeProvider } from 'next-themes';
 import { usePathname } from 'next/navigation';
+import { Poppins, PT_Sans } from 'next/font/google';
+
+const fontPoppins = Poppins({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-poppins',
+});
+
+const fontPtSans = PT_Sans({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-pt-sans',
+});
 
 function AppContent({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -53,12 +66,12 @@ export default function RootLayout({
             <link rel="manifest" href="/manifest.json" />
             <link rel="apple-touch-icon" href="/icon-192x192.png" />
             <meta name="theme-color" content="#1f6f6f" />
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-            <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
           </head>
-          <body className={cn('font-body antialiased')}>
+          <body className={cn(
+            'font-body antialiased',
+            fontPoppins.variable,
+            fontPtSans.variable
+          )}>
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               <FirebaseClientProvider>
                 <AppContent>{children}</AppContent>
