@@ -1,0 +1,398 @@
+
+{
+  "entities": {
+    "Account": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Account",
+      "type": "object",
+      "description": "Represents a user's account (e.g., cash, bank, credit card).",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the account."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the account (e.g., 'Checking Account', 'Cash')."
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of account.",
+          "enum": ["Bank", "Credit Card", "Cash"]
+        },
+        "currencyId": {
+          "type": "string",
+          "description": "Reference to Currency. (Relationship: Currency 1:N Account)"
+        },
+        "balance": {
+          "type": "number",
+          "description": "The current balance of the account."
+        },
+        "description": {
+          "type": "string",
+          "description": "A description of the account.",
+          "format": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "type",
+        "currencyId",
+        "balance"
+      ]
+    },
+    "Category": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Category",
+      "type": "object",
+      "description": "Represents a category for expenses or income.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the category."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the category (e.g., 'Food', 'Salary')."
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of the category ('income' or 'expense')."
+        },
+        "description": {
+          "type": "string",
+          "description": "A description of the category.",
+          "format": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "type"
+      ]
+    },
+    "Transaction": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Transaction",
+      "type": "object",
+      "description": "Represents an income or expense transaction.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the transaction."
+        },
+        "accountId": {
+          "type": "string",
+          "description": "Reference to Account. (Relationship: Account 1:N Transaction)"
+        },
+        "categoryId": {
+          "type": "string",
+          "description": "Reference to Category. (Relationship: Category 1:N Transaction)"
+        },
+        "amount": {
+          "type": "number",
+          "description": "The amount of the transaction."
+        },
+        "date": {
+          "type": "string",
+          "description": "The date of the transaction.",
+          "format": "date-time"
+        },
+        "description": {
+          "type": "string",
+          "description": "A description of the transaction.",
+          "format": "string"
+        }
+      },
+      "required": [
+        "id",
+        "accountId",
+        "categoryId",
+        "amount",
+        "date"
+      ]
+    },
+    "RecurringTransaction": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "RecurringTransaction",
+      "type": "object",
+      "description": "Represents a transaction that occurs on a recurring basis.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the recurring transaction."
+        },
+        "accountId": {
+          "type": "string",
+          "description": "Reference to Account."
+        },
+        "categoryId": {
+          "type": "string",
+          "description": "Reference to Category."
+        },
+        "amount": {
+          "type": "number",
+          "description": "The amount of the transaction."
+        },
+        "description": {
+          "type": "string",
+          "description": "A description of the transaction."
+        },
+        "type": {
+          "type": "string",
+          "enum": ["income", "expense"],
+          "description": "The type of transaction."
+        },
+        "frequency": {
+          "type": "string",
+          "enum": ["monthly", "quarterly", "semi-annually", "yearly"],
+          "description": "How often the transaction occurs."
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date of the first transaction."
+        },
+        "endDate": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "The date the recurrence ends. If null, it's indefinite."
+        },
+        "nextDueDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date the next transaction is due."
+        },
+        "isActive": {
+            "type": "boolean",
+            "description": "Whether the recurring transaction is active or paused."
+        }
+      },
+      "required": [
+        "id",
+        "accountId",
+        "categoryId",
+        "amount",
+        "type",
+        "frequency",
+        "startDate",
+        "nextDueDate",
+        "isActive"
+      ]
+    },
+    "Budget": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Budget",
+      "description": "Represents a savings goal or project budget.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string", "description": "Name of the budget or goal." },
+        "targetAmount": { "type": "number", "description": "The financial goal to reach." },
+        "currentAmount": { "type": "number", "description": "The amount currently saved." },
+        "targetDate": { "type": "string", "format": "date-time", "description": "The desired completion date." },
+        "description": { "type": "string", "description": "A short description of the goal." },
+        "accountIds": {
+            "type": "array",
+            "description": "A list of account IDs linked to this budget.",
+            "items": { "type": "string" }
+        }
+      },
+      "required": ["id", "name", "targetAmount", "currentAmount", "targetDate", "accountIds"]
+    },
+    "Currency": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Currency",
+      "type": "object",
+      "description": "Represents a currency.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the currency."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the currency (e.g., 'US Dollar')."
+        },
+        "code": {
+          "type": "string",
+          "description": "The currency code (e.g., 'USD')."
+        },
+        "symbol": {
+          "type": "string",
+          "description": "The currency symbol (e.g., '$')."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "code",
+        "symbol"
+      ]
+    },
+    "Translation": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Translation",
+      "type": "object",
+      "description": "Represents an offline translation between English, French and Arabic.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the translation."
+        },
+        "sourceText": {
+          "type": "string",
+          "description": "The text to be translated."
+        },
+        "sourceLanguage": {
+          "type": "string",
+          "enum": [
+            "en",
+            "fr",
+            "ar"
+          ],
+          "description": "The source language of the text."
+        },
+        "targetLanguage": {
+          "type": "string",
+          "enum": [
+            "en",
+            "fr",
+            "ar"
+          ],
+          "description": "The target language for the translation."
+        },
+        "translatedText": {
+          "type": "string",
+          "description": "The translated text."
+        }
+      },
+      "required": [
+        "id",
+        "sourceText",
+        "sourceLanguage",
+        "targetLanguage",
+        "translatedText"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}/accounts/{accountId}",
+        "definition": {
+          "entityName": "Account",
+          "schema": {
+            "$ref": "#/backend/entities/Account"
+          },
+          "description": "Stores user accounts. Path-based ownership enforced via the 'userId' parameter.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The ID of the user who owns the account."
+            },
+            {
+              "name": "accountId",
+              "description": "The ID of the account."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/categories/{categoryId}",
+        "definition": {
+          "entityName": "Category",
+          "schema": {
+            "$ref": "#/backend/entities/Category"
+          },
+          "description": "Stores user-defined categories. Path-based ownership enforced via the 'userId' parameter.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The ID of the user who owns the category."
+            },
+            {
+              "name": "categoryId",
+              "description": "The ID of the category."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/transactions/{transactionId}",
+        "definition": {
+          "entityName": "Transaction",
+          "schema": {
+            "$ref": "#/backend/entities/Transaction"
+          },
+          "description": "Stores transaction data. Path-based ownership enforced via the 'userId' parameter.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The ID of the user who owns the transaction."
+            },
+            {
+              "name": "transactionId",
+              "description": "The ID of the transaction."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/recurring_transactions/{recurringTransactionId}",
+        "definition": {
+          "entityName": "RecurringTransaction",
+          "schema": {
+            "$ref": "#/backend/entities/RecurringTransaction"
+          },
+          "description": "Stores recurring transaction data. Path-based ownership enforced via the 'userId' parameter.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The ID of the user who owns the recurring transaction."
+            },
+            {
+              "name": "recurringTransactionId",
+              "description": "The ID of the recurring transaction."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/budgets/{budgetId}",
+        "definition": {
+          "entityName": "Budget",
+          "schema": { "$ref": "#/backend/entities/Budget" },
+          "description": "Stores user-created budget goals. Path-based ownership is enforced via the 'userId' parameter.",
+          "params": [
+            { "name": "userId", "description": "The ID of the user who owns the budget." },
+            { "name": "budgetId", "description": "The ID of the budget." }
+          ]
+        }
+      },
+      {
+        "path": "/currencies/{currencyId}",
+        "definition": {
+          "entityName": "Currency",
+          "schema": {
+            "$ref": "#/backend/entities/Currency"
+          },
+          "description": "Stores currency information. Write access restricted to admins.",
+          "params": [
+            {
+              "name": "currencyId",
+              "description": "The ID of the currency."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore data structure is designed to support BudgetWise's core features, including expense, income, account, category, and currency management. The structure prioritizes authorization independence, clarity, and scalability. Path-based ownership is used for user-specific data, while denormalization ensures security rules do not rely on `get()` calls. Segregation is employed to isolate data with distinct access requirements.\n\n*   **User Data**: User-owned data (accounts, categories, transactions) are stored under the `/users/{userId}` collection. This provides a clear and secure way to manage user-specific information. The hierarchy `/users/{userId}/accounts/{accountId}` and `/users/{userId}/categories/{categoryId}` and `/users/{userId}/transactions/{transactionId}` facilitates easy management of account and transaction relationships.\n\n*   **Authorization Independence**: Denormalization is applied to ensure authorization rules do not require `get()` calls. For example, if access to transactions depends on account ownership, the `userId` of the account is stored within each transaction document. This allows security rules to validate access based solely on the data present in the transaction document and the authenticated user's ID, achieving Authorization Independence.\n\n*   **QAPs (Query Authorization Protection)**: The structure supports secure `list` operations through path-based ownership and structural segregation. Since user-specific data is isolated under the `/users/{userId}` collection, listing accounts, categories, or transactions can be secured by verifying that `request.auth.uid == userId`. The use of dedicated collections and subcollections with well-defined ownership ensures that listing operations only return data that the user is authorized to access, preventing unauthorized data exposure.\n\n*   **Currency**: Currencies are stored at the root level in a `currencies` collection since they are likely global data used by all users. Security rules should restrict write access to admin users only."
+  }
+}

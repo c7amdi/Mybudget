@@ -1,0 +1,190 @@
+{
+  "placeholderImages": [
+    {
+      "id": "user-avatar",
+      "description": "User avatar placeholder",
+      "imageUrl": "https://images.unsplash.com/photo-1600180758890-6b94519a8ba6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjM2OTE5NzZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "preset-avatar-hero1",
+      "description": "Animated superhero with a cape",
+      "imageUrl": "https://images.unsplash.com/photo-1763315371360-96015292bbf8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzdXBlcmhlcm8lMjBpbGx1c3RyYXRpb258ZW58MHx8fHwxNzYzODA5MzcwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "superhero illustration"
+    },
+    {
+      "id": "preset-avatar-hero2",
+      "description": "Female warrior with a sword",
+      "imageUrl": "https://images.unsplash.com/photo-1635921480215-cefbf57cef53?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmYW50YXN5JTIwd2FycmlvcnxlbnwwfHx8fDE3NjM3NDczODZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fantasy warrior"
+    },
+    {
+      "id": "preset-avatar-hero3",
+      "description": "Sci-fi character in a futuristic suit",
+      "imageUrl": "https://images.unsplash.com/photo-1763194976473-a6145a368de2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzY2lmaSUyMGNoYXJhY3RlcnxlbnwwfHx8fDE3NjM4MDkzNjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "scifi character"
+    },
+    {
+      "id": "preset-avatar-hero4",
+      "description": "Masked vigilante in the shadows",
+      "imageUrl": "https://images.unsplash.com/photo-1615987130805-d0c61fb2274e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxkYXJrJTIwaGVyb3xlbnwwfHx8fDE3NjM3ODI5MDN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dark hero"
+    },
+    {
+      "id": "preset-avatar-hero5",
+      "description": "Mage casting a spell",
+      "imageUrl": "https://images.unsplash.com/photo-1635921481467-fba710b8e65c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmYW50YXN5JTIwbWFnZXxlbnwwfHx8fDE3NjM3OTQ2OTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fantasy mage"
+    },
+    {
+      "id": "preset-avatar-hero6",
+      "description": "Robot hero with glowing eyes",
+      "imageUrl": "https://images.unsplash.com/photo-1759885697855-52d11c41b19b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cm9ib3QlMjBjaGFyYWN0ZXJ8ZW58MHx8fHwxNzYzODA5MzcwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "robot character"
+    },
+    {
+      "id": "preset-avatar-hero7",
+      "description": "Archer with a bow and arrow",
+      "imageUrl": "https://images.unsplash.com/photo-1562008752-2459495a0c05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxmYW50YXN5JTIwYXJjaGVyfGVufDB8fHx8MTc2Mzc0Njc2MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fantasy archer"
+    },
+    {
+      "id": "preset-avatar-hero8",
+      "description": "Space ranger with a laser pistol",
+      "imageUrl": "https://images.unsplash.com/photo-1763194977806-046b030a733d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzY2lmaSUyMHJhbmdlcnxlbnwwfHx8fDE3NjM4MDkzNjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "scifi ranger"
+    },
+    {
+      "id": "preset-avatar-hero9",
+      "description": "Knight in shining armor",
+      "imageUrl": "https://images.unsplash.com/photo-1654592200845-f5d22b8da331?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmYW50YXN5JTIwa25pZ2h0fGVufDB8fHx8MTc2Mzc4OTkwOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fantasy knight"
+    },
+    {
+      "id": "preset-avatar-hero10",
+      "description": "Speedster hero in a blur of motion",
+      "imageUrl": "https://images.unsplash.com/photo-1702138129392-364adea0ad00?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzdXBlcmhlcm8lMjBzcGVlZHxlbnwwfHx8fDE3NjM4MDkzNjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "superhero speed"
+    },
+    {
+      "id": "preset-avatar-hero11",
+      "description": "A powerful sorceress",
+      "imageUrl": "https://images.unsplash.com/photo-1635193879403-ab8e1355630c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmYW50YXN5JTIwc29yY2VyZXNzfGVufDB8fHx8MTc2MzcyNDk2Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fantasy sorceress"
+    },
+    {
+      "id": "preset-avatar-hero12",
+      "description": "A cartoon ninja character",
+      "imageUrl": "https://images.unsplash.com/photo-1636718623222-585165c8e31b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bmluamElMjBjaGFyYWN0ZXJ8ZW58MHx8fHwxNzYzODA5MzY5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ninja character"
+    },
+    {
+      "id": "preset-avatar-hero13",
+      "description": "An adventurer with a map",
+      "imageUrl": "https://images.unsplash.com/photo-1590431257462-ae5c0e1baf1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhZHZlbnR1cmVyJTIwY2FydG9vbnxlbnwwfHx8fDE3NjM4MDkzNjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "adventurer cartoon"
+    },
+    {
+      "id": "preset-avatar-hero14",
+      "description": "A pilot hero with goggles",
+      "imageUrl": "https://images.unsplash.com/photo-1584445651808-d517d171e0c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwaWxvdCUyMGNhcnRvb258ZW58MHx8fHwxNzYzODA5MzY5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pilot cartoon"
+    },
+    {
+      "id": "preset-avatar-hero15",
+      "description": "A pirate captain character",
+      "imageUrl": "https://images.unsplash.com/photo-1619121848393-4362da4deacc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwaXJhdGUlMjBjYXJ0b29ufGVufDB8fHx8MTc2MzgwOTM3MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pirate cartoon"
+    },
+    {
+      "id": "preset-avatar-hero16",
+      "description": "A muscular barbarian hero",
+      "imageUrl": "https://images.unsplash.com/photo-1693921978742-c93c4a3e6172?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmYW50YXN5JTIwYmFyYmFyaWFufGVufDB8fHx8MTc2Mzc1ODIyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fantasy barbarian"
+    },
+    {
+      "id": "preset-avatar-hero17",
+      "description": "A futuristic cyborg character",
+      "imageUrl": "https://images.unsplash.com/photo-1706705534491-c6beb864a379?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzY2lmaSUyMGN5Ym9yZ3xlbnwwfHx8fDE3NjM4MDkzNjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "scifi cyborg"
+    },
+    {
+      "id": "preset-avatar-hero18",
+      "description": "A stealthy rogue character",
+      "imageUrl": "https://picsum.photos/seed/rogueCharacter/256/256",
+      "imageHint": "fantasy rogue"
+    },
+    {
+      "id": "preset-avatar-hero19",
+      "description": "A hero with fire powers",
+      "imageUrl": "https://images.unsplash.com/photo-1593355820299-ca1cb56a2193?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzdXBlcmhlcm8lMjBmaXJlfGVufDB8fHx8MTc2MzgwOTM2OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "superhero fire"
+    },
+    {
+      "id": "preset-avatar-hero20",
+      "description": "A hero with ice powers",
+      "imageUrl": "https://images.unsplash.com/photo-1739631404308-b2782c78ba45?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzdXBlcmhlcm8lMjBpY2V8ZW58MHx8fHwxNzYzODA5MzY5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "superhero ice"
+    },
+    {
+      "id": "preset-avatar-hero21",
+      "description": "A time-traveling hero",
+      "imageUrl": "https://images.unsplash.com/photo-1705478563275-a4693b6bf2cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzY2lmaSUyMGhlcm98ZW58MHx8fHwxNzYzODA5MzY5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "scifi hero"
+    },
+    {
+      "id": "preset-avatar-hero22",
+      "description": "An elven archer princess",
+      "imageUrl": "https://images.unsplash.com/photo-1745957014356-a1e867ea303b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmYW50YXN5JTIwZWxmfGVufDB8fHx8MTc2MzgwOTM2OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fantasy elf"
+    },
+    {
+      "id": "preset-avatar-hero23",
+      "description": "A dwarven warrior with an axe",
+      "imageUrl": "https://images.unsplash.com/photo-1702700591520-43f7803b5def?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmYW50YXN5JTIwZHdhcmZ8ZW58MHx8fHwxNzYzODA5MzY5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fantasy dwarf"
+    },
+    {
+      "id": "preset-avatar-hero24",
+      "description": "An alien hero from another planet",
+      "imageUrl": "https://images.unsplash.com/photo-1763198216825-06c985c712a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzY2lmaSUyMGFsaWVufGVufDB8fHx8MTc2MzgwOTM2OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "scifi alien"
+    },
+    {
+      "id": "preset-avatar-hero25",
+      "description": "A classic cartoon detective",
+      "imageUrl": "https://images.unsplash.com/photo-1724875082412-8481c99e1e02?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkZXRlY3RpdmUlMjBjYXJ0b29ufGVufDB8fHx8MTc2MzgwOTM3MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "detective cartoon"
+    },
+    {
+      "id": "preset-avatar-hero26",
+      "description": "A superheroine in flight",
+      "imageUrl": "https://images.unsplash.com/photo-1763315371253-ce4d195ba6d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzdXBlcmhlcm8lMjBmbHlpbmd8ZW58MHx8fHwxNzYzNzM3NTYyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "superhero flying"
+    },
+    {
+      "id": "preset-avatar-hero27",
+      "description": "A gladiator hero with a shield",
+      "imageUrl": "https://images.unsplash.com/photo-1625922870609-72f57c8bf411?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8d2FycmlvciUyMGdsYWRpYXRvcnxlbnwwfHx8fDE3NjM4MDkzNjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "warrior gladiator"
+    },
+    {
+      "id": "preset-avatar-hero28",
+      "description": "A steampunk inventor character",
+      "imageUrl": "https://images.unsplash.com/photo-1581343109297-b0723710832b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdGVhbXB1bmslMjBjaGFyYWN0ZXJ8ZW58MHx8fHwxNzYzODA5MzcwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "steampunk character"
+    },
+    {
+      "id": "preset-avatar-hero29",
+      "description": "A cartoon vampire character",
+      "imageUrl": "https://images.unsplash.com/photo-1758124993030-3465a0187f84?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx2YW1waXJlJTIwY2FydG9vbnxlbnwwfHx8fDE3NjM4MDkzNjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "vampire cartoon"
+    },
+    {
+      "id": "preset-avatar-hero30",
+      "description": "A powerful galactic emperor",
+      "imageUrl": "https://images.unsplash.com/photo-1656397141911-03f06bc9f091?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzY2lmaSUyMHZpbGxhaW58ZW58MHx8fHwxNzYzODA5MzY5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "scifi villain"
+    }
+  ]
+}

@@ -1,0 +1,281 @@
+
+{
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "transactions": "المعاملات",
+    "recurring": "المتكررة",
+    "accounts": "الحسابات",
+    "categories": "الفئات",
+    "budgets": "الميزانيات",
+    "reports": "التقارير",
+    "settings": "الإعدادات"
+  },
+  "userMenu": {
+    "myAccount": "حسابي",
+    "settings": "الإعدادات",
+    "support": "الدعم",
+    "logout": "تسجيل الخروج"
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "addTransaction": "إضافة معاملة",
+    "netWorth": "صافي الثروة",
+    "netWorthDescription": "مجموع أرصدة جميع الحسابات",
+    "incomeThisMonth": "الدخل (هذا الشهر)",
+    "incomeThisMonthDescription": "إجمالي دخلك لهذا الشهر",
+    "expensesThisMonth": "المصروفات (هذا الشهر)",
+    "expensesThisMonthDescription": "إجمالي مصروفاتك لهذا الشهر",
+    "overview": "نظرة عامة",
+    "overviewDescription": "ملخص لدخلك ومصروفاتك.",
+    "recentTransactions": "المعاملات الأخيرة"
+  },
+  "accounts": {
+    "title": "الحسابات",
+    "addAccount": "إضافة حساب",
+    "editAccount": "تعديل الحساب",
+    "form": {
+      "name": "اسم الحساب",
+      "namePlaceholder": "مثال: حساب البنك الرئيسي",
+      "type": "نوع الحساب",
+      "typePlaceholder": "اختر نوع الحساب",
+      "balance": "الرصيد الأولي",
+      "balancePlaceholder": "مثال: 1000.00",
+      "currency": "العملة"
+    },
+    "types": {
+      "Bank": "بنك",
+      "Credit Card": "بطاقة ائتمan",
+      "Cash": "نقدي"
+    },
+    "actions": {
+      "edit": "تعديل",
+      "viewTransactions": "عرض المعاملات",
+      "delete": "حذف"
+    },
+    "currencyLabel": "العملة"
+  },
+  "accountDetail": {
+    "loading": "جاري تحميل الحساب...",
+    "notFound": "الحساب غير موجود.",
+    "balanceCardTitle": "الرصيد الحالي",
+    "balanceCardDescription": "حتى اليوم",
+    "detailsCardTitle": "تفاصيل الحساب",
+    "detailsCardDescription": "النوع ومعلومات أخرى",
+    "accountType": "النوع",
+    "chartTitle": "الدخل مقابل المصروفات",
+    "chartDescription": "ملخص للدخل والمصروفات لهذا الحساب.",
+    "transactionsTitle": "المعاملات",
+    "transactionsDescription": "جميع المعاملات المرتبطة بهذا الحساب.",
+    "table": {
+      "description": "الوصف",
+      "category": "الفئة",
+      "date": "التاريخ",
+      "amount": "المبلغ"
+    }
+  },
+  "categories": {
+    "title": "الفئات",
+    "addCategory": "إضافة فئة",
+    "editCategory": "تعديل الفئة",
+    "manageTitle": "إدارة الفئات",
+    "manageDescription": "نظم معاملاتك عن طريق إنشاء وإدارة فئات للدخل والمصروفات.",
+    "tabs": {
+      "expense": "فئات المصروفات",
+      "income": "فئات الدخل"
+    },
+    "form": {
+      "name": "اسم الفئة",
+      "namePlaceholder": "مثال: بقالة",
+      "type": "نوع الفئة",
+      "typePlaceholder": "اختر نوع الفئة",
+      "parent": "الفئة الرئيسية (اختياري)",
+      "parentPlaceholder": "اختر فئة رئيسية",
+      "noParent": "لا يوجد"
+    },
+    "types": {
+      "income": "دخل",
+      "expense": "مصروف"
+    },
+    "actions": {
+      "label": "إجراءات",
+      "edit": "تعديل",
+      "delete": "حذف"
+    }
+  },
+  "budgets": {
+    "title": "الميزانيات",
+    "addBudget": "إضافة ميزانية",
+    "editBudget": "تعديل الميزانية",
+    "cardTitle": "أهداف ميزانيتك",
+    "cardDescription": "قم بإنشاء وتتبع أهدافك ومشاريعك الادخارية.",
+    "availableToSave": "المتاح لهذا الهدف",
+    "availableToSaveDescription": "إجمالي الأموال في الحسابات غير النقدية.",
+    "remainingAfterAvailable": "المتبقي المطلوب",
+    "suggestedMonthlySaving": "التوفير الشهري المقترح",
+    "suggestedDailySaving": "التوفير اليومي المقترح",
+    "predictedAchievementDate": "تاريخ الإنجاز المتوقع",
+    "table": {
+      "name": "اسم الميزانية",
+      "progress": "التقدم",
+      "targetAmount": "المبلغ المستهدف",
+      "currentAmount": "المدخر",
+      "targetDate": "التاريخ المستهدف",
+      "actions": "الإجراءات"
+    },
+    "form": {
+      "name": "اسم الميزانية",
+      "namePlaceholder": "مثال: إجازة إلى اليابان",
+      "description": "الوصف (اختياري)",
+      "descriptionPlaceholder": "وصف قصير لهدفك",
+      "targetAmount": "المبلغ المستهدف",
+      "targetAmountPlaceholder": "2000.00",
+      "currentAmount": "المبلغ المدخر حاليًا",
+      "currentAmountPlaceholder": "0.00",
+      "targetDate": "التاريخ المستهدف",
+      "pickDate": "اختر تاريخًا",
+      "linkAccounts": "ربط الحسابات بالميزانية",
+      "linkAccountsDescription": "حدد الحسابات التي ستساهم في مبلغ 'المتاح للتوفير' لهذا الهدف."
+    }
+  },
+  "recurring": {
+    "title": "المعاملات المتكررة",
+    "add": "إضافة متكرر",
+    "edit": "تعديل معاملة متكررة",
+    "cardTitle": "معاملاتك المتكررة",
+    "cardDescription": "حدد قوالب للمعاملات التي تحدث بانتظام.",
+    "table": {
+      "description": "الوصف",
+      "category": "الفئة",
+      "account": "الحساب",
+      "frequency": "التكرار",
+      "nextDueDate": "تاريخ الاستحقاق التالي",
+      "amount": "المبلغ",
+      "actions": "إجراءات"
+    },
+    "form": {
+      "description": "الوصف",
+      "descriptionPlaceholder": "مثال: الراتب الشهري",
+      "amount": "المبلغ",
+      "amountPlaceholder": "0.00",
+      "type": "النوع",
+      "typePlaceholder": "اختر نوع المعاملة",
+      "category": "الفئة",
+      "categoryPlaceholder": "اختر فئة",
+      "account": "الحساب",
+      "accountPlaceholder": "اختر حسابًا",
+      "frequency": "التكرار",
+      "frequencyPlaceholder": "اختر التكرار",
+      "startDate": "تاريخ البدء",
+      "endDate": "تاريخ الانتهاء",
+      "noEndDate": "بلا تاريخ انتهاء",
+      "pickDate": "اختر تاريخًا"
+    },
+    "frequencies": {
+      "monthly": "شهري",
+      "quarterly": "ربع سنوي (3 أشهر)",
+      "semi-annually": "نصف سنوي (6 أشهر)",
+      "yearly": "سنوي"
+    }
+  },
+  "reports": {
+    "title": "التقارير",
+    "summary": "ملخص",
+    "spendingByCategory": "الإنفاق حسب الفئة",
+    "spendingDescription": "تفصيل لمصروفاتك للفترة المحددة.",
+    "incomeByCategory": "الدخل حسب الفئة",
+    "incomeDescription": "تفصيل لدخلك للفترة المحددة.",
+    "incomeVsExpense": "الدخل مقابل المصروفات",
+    "incomeVsExpenseDescription": "ملخص لدخلك ومصروفاتك خلال الـ 6 أشهر الماضية.",
+    "overall": "شامل",
+    "totalIncome": "إجمالي الدخل",
+    "totalExpenses": "إجمالي المصروفات",
+    "netSavings": "صافي المدخرات",
+    "aiSummaryTitle": "ملخص مالي بالذكاء الاصطناعي",
+    "aiSummaryDescription": "تحليل ذكي لنشاطك المالي.",
+    "mainCurrencyNote": "بناءً على عملتك الرئيسية",
+    "narrativeTitle": "ملخص وصفي",
+    "adviceTitle": "نصيحة شخصية",
+    "noData": "لا توجد بيانات لهذه الفترة.",
+    "noDataDescription": "جرّب تحديد نطاق زمني مختلف أو إضافة بعض المعاملات."
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "currenciesTitle": "العملات المتاحة",
+    "currenciesDescription": "قائمة شاملة بعملات العالم المتاحة في التطبيق.",
+    "table": {
+      "code": "الرمز",
+      "name": "الاسم",
+      "symbol": "الرمز"
+    }
+  },
+  "transactions": {
+    "title": "المعاملات",
+    "transfer": "تحويل",
+    "add": "إضافة معاملة",
+    "edit": "تعديل المعاملة",
+    "cardTitle": "معاملاتك",
+    "cardDescription": "عرض وإدارة جميع أنشطتك المالية.",
+    "tabs": {
+      "all": "الكل",
+      "income": "الدخل",
+      "expenses": "المصروفات",
+      "transfers": "التحويلات"
+    },
+    "table": {
+      "description": "الوصف",
+      "transactionType": "النوع",
+      "category": "الفئة",
+      "date": "التاريخ",
+      "account": "الحساب",
+      "amount": "المبلغ",
+      "actions": "إجراءات"
+    },
+    "transactionTypes": {
+      "Regular": "عادية",
+      "Transfer": "تحويل",
+      "Recurring": "متكررة"
+    },
+    "form": {
+      "description": "الوصف",
+      "descriptionPlaceholder": "مثال: بقالة",
+      "amount": "المبلغ",
+      "amountPlaceholder": "0.00",
+      "type": "النوع",
+      "typePlaceholder": "اختر نوع المعاملة",
+      "category": "الفئة",
+      "categoryPlaceholder": "اختر فئة",
+      "account": "الحساب",
+      "accountPlaceholder": "اختر حسابًا",
+      "date": "التاريخ",
+      "pickDate": "اختر تاريخًا"
+    },
+    "transferForm": {
+      "title": "تحويل أموال",
+      "fromAccount": "من حساب",
+      "fromAccountPlaceholder": "اختر حساب المصدر",
+      "toAccount": "إلى حساب",
+      "toAccountPlaceholder": "اختر حساب الوجهة",
+      "amount": "المبلغ",
+      "description": "الوصف (اختياري)",
+      "descriptionPlaceholder": "مثال: تحويل توفير",
+      "date": "التاريخ",
+      "save": "حفظ التحويل"
+    },
+    "actions": {
+      "edit": "تعديل",
+      "delete": "حذف",
+      "editDisabledWarning": "تعديل التحويلات أو المعاملات المتكررة غير مدعوم هنا."
+    }
+  },
+  "common": {
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "day": "يوم",
+    "week": "أسبوع",
+    "month": "شهر",
+    "year": "سنة",
+    "pickDateRange": "اختر نطاقًا زمنيًا"
+  }
+}
+
+    

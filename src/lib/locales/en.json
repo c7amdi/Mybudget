@@ -1,0 +1,281 @@
+
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "transactions": "Transactions",
+    "recurring": "Recurring",
+    "accounts": "Accounts",
+    "categories": "Categories",
+    "budgets": "Budgets",
+    "reports": "Reports",
+    "settings": "Settings"
+  },
+  "userMenu": {
+    "myAccount": "My Account",
+    "settings": "Settings",
+    "support": "Support",
+    "logout": "Logout"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "addTransaction": "Add Transaction",
+    "netWorth": "Net Worth",
+    "netWorthDescription": "Sum of all account balances",
+    "incomeThisMonth": "Income (This Month)",
+    "incomeThisMonthDescription": "Your total income for this month",
+    "expensesThisMonth": "Expenses (This Month)",
+    "expensesThisMonthDescription": "Your total expenses for this month",
+    "overview": "Overview",
+    "overviewDescription": "A summary of your income and expenses.",
+    "recentTransactions": "Recent Transactions"
+  },
+  "accounts": {
+    "title": "Accounts",
+    "addAccount": "Add Account",
+    "editAccount": "Edit Account",
+    "form": {
+      "name": "Account Name",
+      "namePlaceholder": "e.g. Main Bank Account",
+      "type": "Account Type",
+      "typePlaceholder": "Select an account type",
+      "balance": "Initial Balance",
+      "balancePlaceholder": "e.g. 1000.00",
+      "currency": "Currency"
+    },
+    "types": {
+      "Bank": "Bank",
+      "Credit Card": "Credit Card",
+      "Cash": "Cash"
+    },
+    "actions": {
+      "edit": "Edit",
+      "viewTransactions": "View transactions",
+      "delete": "Delete"
+    },
+    "currencyLabel": "Currency"
+  },
+  "accountDetail": {
+    "loading": "Loading account...",
+    "notFound": "Account not found.",
+    "balanceCardTitle": "Current Balance",
+    "balanceCardDescription": "As of today",
+    "detailsCardTitle": "Account Details",
+    "detailsCardDescription": "Type and other information",
+    "accountType": "Type",
+    "chartTitle": "Income vs. Expense",
+    "chartDescription": "A summary of income and expenses for this account.",
+    "transactionsTitle": "Transactions",
+    "transactionsDescription": "All transactions associated with this account.",
+    "table": {
+      "description": "Description",
+      "category": "Category",
+      "date": "Date",
+      "amount": "Amount"
+    }
+  },
+  "categories": {
+    "title": "Categories",
+    "addCategory": "Add Category",
+    "editCategory": "Edit Category",
+    "manageTitle": "Manage Categories",
+    "manageDescription": "Organize your transactions by creating and managing categories for income and expenses.",
+    "tabs": {
+      "expense": "Expense Categories",
+      "income": "Income Categories"
+    },
+    "form": {
+      "name": "Category Name",
+      "namePlaceholder": "e.g. Groceries",
+      "type": "Category Type",
+      "typePlaceholder": "Select a category type",
+      "parent": "Parent Category (Optional)",
+      "parentPlaceholder": "Select a parent category",
+      "noParent": "None"
+    },
+    "types": {
+      "income": "Income",
+      "expense": "Expense"
+    },
+    "actions": {
+      "label": "Actions",
+      "edit": "Edit",
+      "delete": "Delete"
+    }
+  },
+  "budgets": {
+    "title": "Budgets",
+    "addBudget": "Add Budget",
+    "editBudget": "Edit Budget",
+    "cardTitle": "Your Budget Goals",
+    "cardDescription": "Create and track your savings goals and projects.",
+    "availableToSave": "Available for this Goal",
+    "availableToSaveDescription": "Total funds in non-cash accounts.",
+    "remainingAfterAvailable": "Still Needed",
+    "suggestedMonthlySaving": "Suggested Monthly Saving",
+    "suggestedDailySaving": "Suggested Daily Saving",
+    "predictedAchievementDate": "Predicted Achievement Date",
+    "table": {
+      "name": "Budget Name",
+      "progress": "Progress",
+      "targetAmount": "Target Amount",
+      "currentAmount": "Saved",
+      "targetDate": "Target Date",
+      "actions": "Actions"
+    },
+    "form": {
+      "name": "Budget Name",
+      "namePlaceholder": "e.g. Vacation to Japan",
+      "description": "Description (Optional)",
+      "descriptionPlaceholder": "A short description of your goal",
+      "targetAmount": "Target Amount",
+      "targetAmountPlaceholder": "2000.00",
+      "currentAmount": "Current Amount Saved",
+      "currentAmountPlaceholder": "0.00",
+      "targetDate": "Target Date",
+      "pickDate": "Pick a date",
+      "linkAccounts": "Link Accounts to Budget",
+      "linkAccountsDescription": "Select which accounts will contribute to this goal's 'Available to Save' amount."
+    }
+  },
+  "recurring": {
+    "title": "Recurring Transactions",
+    "add": "Add Recurring",
+    "edit": "Edit Recurring Transaction",
+    "cardTitle": "Your Recurring Transactions",
+    "cardDescription": "Define templates for transactions that happen regularly.",
+    "table": {
+      "description": "Description",
+      "category": "Category",
+      "account": "Account",
+      "frequency": "Frequency",
+      "nextDueDate": "Next Due Date",
+      "amount": "Amount",
+      "actions": "Actions"
+    },
+    "form": {
+      "description": "Description",
+      "descriptionPlaceholder": "e.g. Monthly Salary",
+      "amount": "Amount",
+      "amountPlaceholder": "0.00",
+      "type": "Type",
+      "typePlaceholder": "Select a transaction type",
+      "category": "Category",
+      "categoryPlaceholder": "Select a category",
+      "account": "Account",
+      "accountPlaceholder": "Select an account",
+      "frequency": "Frequency",
+      "frequencyPlaceholder": "Select frequency",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "noEndDate": "No End Date",
+      "pickDate": "Pick a date"
+    },
+    "frequencies": {
+      "monthly": "Monthly",
+      "quarterly": "Quarterly (3 months)",
+      "semi-annually": "Semi-Annually (6 months)",
+      "yearly": "Yearly"
+    }
+  },
+  "reports": {
+    "title": "Reports",
+    "summary": "Summary",
+    "spendingByCategory": "Spending by Category",
+    "spendingDescription": "A breakdown of your expenses for the selected period.",
+    "incomeByCategory": "Income by Category",
+    "incomeDescription": "A breakdown of your income for the selected period.",
+    "incomeVsExpense": "Income vs. Expense",
+    "incomeVsExpenseDescription": "A summary of your income and expenses over the last 6 months.",
+    "overall": "Overall",
+    "totalIncome": "Total Income",
+    "totalExpenses": "Total Expenses",
+    "netSavings": "Net Savings",
+    "aiSummaryTitle": "AI Financial Summary",
+    "aiSummaryDescription": "A smart analysis of your financial activity.",
+    "mainCurrencyNote": "Based on your main currency",
+    "narrativeTitle": "Summary Narrative",
+    "adviceTitle": "Personalized Advice",
+    "noData": "No data for this period.",
+    "noDataDescription": "Try selecting a different time range or adding some transactions."
+  },
+  "settings": {
+    "title": "Settings",
+    "currenciesTitle": "Available Currencies",
+    "currenciesDescription": "A comprehensive list of world currencies available in the app.",
+    "table": {
+      "code": "Code",
+      "name": "Name",
+      "symbol": "Symbol"
+    }
+  },
+  "transactions": {
+    "title": "Transactions",
+    "transfer": "Transfer",
+    "add": "Add Transaction",
+    "edit": "Edit Transaction",
+    "cardTitle": "Your Transactions",
+    "cardDescription": "View and manage all your financial activities.",
+    "tabs": {
+      "all": "All",
+      "income": "Income",
+      "expenses": "Expenses",
+      "transfers": "Transfers"
+    },
+    "table": {
+      "description": "Description",
+      "transactionType": "Type",
+      "category": "Category",
+      "date": "Date",
+      "account": "Account",
+      "amount": "Amount",
+      "actions": "Actions"
+    },
+    "transactionTypes": {
+      "Regular": "Regular",
+      "Transfer": "Transfer",
+      "Recurring": "Recurring"
+    },
+    "form": {
+      "description": "Description",
+      "descriptionPlaceholder": "e.g. Groceries",
+      "amount": "Amount",
+      "amountPlaceholder": "0.00",
+      "type": "Type",
+      "typePlaceholder": "Select a transaction type",
+      "category": "Category",
+      "categoryPlaceholder": "Select a category",
+      "account": "Account",
+      "accountPlaceholder": "Select an account",
+      "date": "Date",
+      "pickDate": "Pick a date"
+    },
+    "transferForm": {
+      "title": "Transfer Money",
+      "fromAccount": "From Account",
+      "fromAccountPlaceholder": "Select source account",
+      "toAccount": "To Account",
+      "toAccountPlaceholder": "Select destination account",
+      "amount": "Amount",
+      "description": "Description (Optional)",
+      "descriptionPlaceholder": "e.g. Savings transfer",
+      "date": "Date",
+      "save": "Save Transfer"
+    },
+    "actions": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "editDisabledWarning": "Editing transfers or recurring transactions is not supported here."
+    }
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "day": "Day",
+    "week": "Week",
+    "month": "Month",
+    "year": "Year",
+    "pickDateRange": "Pick a date range"
+  }
+}
+
+    

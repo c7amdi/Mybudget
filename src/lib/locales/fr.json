@@ -1,0 +1,281 @@
+
+{
+  "nav": {
+    "dashboard": "Tableau de Bord",
+    "transactions": "Transactions",
+    "recurring": "Récurrent",
+    "accounts": "Comptes",
+    "categories": "Catégories",
+    "budgets": "Budgets",
+    "reports": "Rapports",
+    "settings": "Paramètres"
+  },
+  "userMenu": {
+    "myAccount": "Mon Compte",
+    "settings": "Paramètres",
+    "support": "Support",
+    "logout": "Déconnexion"
+  },
+  "dashboard": {
+    "title": "Tableau de Bord",
+    "addTransaction": "Ajouter Transaction",
+    "netWorth": "Valeur Nette",
+    "netWorthDescription": "Somme des soldes de tous les comptes",
+    "incomeThisMonth": "Revenus (Ce Mois)",
+    "incomeThisMonthDescription": "Vos revenus totaux pour ce mois",
+    "expensesThisMonth": "Dépenses (Ce Mois)",
+    "expensesThisMonthDescription": "Vos dépenses totales pour ce mois",
+    "overview": "Aperçu",
+    "overviewDescription": "Un résumé de vos revenus et dépenses.",
+    "recentTransactions": "Transactions Récentes"
+  },
+  "accounts": {
+    "title": "Comptes",
+    "addAccount": "Ajouter un Compte",
+    "editAccount": "Modifier le Compte",
+    "form": {
+      "name": "Nom du Compte",
+      "namePlaceholder": "ex. Compte Bancaire Principal",
+      "type": "Type de Compte",
+      "typePlaceholder": "Sélectionnez un type de compte",
+      "balance": "Solde Initial",
+      "balancePlaceholder": "ex. 1000.00",
+      "currency": "Devise"
+    },
+    "types": {
+      "Bank": "Banque",
+      "Credit Card": "Carte de Crédit",
+      "Cash": "Espèces"
+    },
+    "actions": {
+      "edit": "Modifier",
+      "viewTransactions": "Voir transactions",
+      "delete": "Supprimer"
+    },
+    "currencyLabel": "Devise"
+  },
+  "accountDetail": {
+    "loading": "Chargement du compte...",
+    "notFound": "Compte non trouvé.",
+    "balanceCardTitle": "Solde Actuel",
+    "balanceCardDescription": "À ce jour",
+    "detailsCardTitle": "Détails du Compte",
+    "detailsCardDescription": "Type et autres informations",
+    "accountType": "Type",
+    "chartTitle": "Revenus vs. Dépenses",
+    "chartDescription": "Un résumé des revenus et dépenses pour ce compte.",
+    "transactionsTitle": "Transactions",
+    "transactionsDescription": "Toutes les transactions associées à ce compte.",
+    "table": {
+      "description": "Description",
+      "category": "Catégorie",
+      "date": "Date",
+      "amount": "Montant"
+    }
+  },
+  "categories": {
+    "title": "Catégories",
+    "addCategory": "Ajouter une Catégorie",
+    "editCategory": "Modifier la Catégorie",
+    "manageTitle": "Gérer les Catégories",
+    "manageDescription": "Organisez vos transactions en créant et gérant des catégories pour les revenus et les dépenses.",
+    "tabs": {
+      "expense": "Catégories de Dépenses",
+      "income": "Catégories de Revenus"
+    },
+    "form": {
+      "name": "Nom de la Catégorie",
+      "namePlaceholder": "ex. Épicerie",
+      "type": "Type de Catégorie",
+      "typePlaceholder": "Sélectionnez un type de catégorie",
+      "parent": "Catégorie Parente (Optionnel)",
+      "parentPlaceholder": "Sélectionnez une catégorie parente",
+      "noParent": "Aucune"
+    },
+    "types": {
+      "income": "Revenu",
+      "expense": "Dépense"
+    },
+    "actions": {
+      "label": "Actions",
+      "edit": "Modifier",
+      "delete": "Supprimer"
+    }
+  },
+  "budgets": {
+    "title": "Budgets",
+    "addBudget": "Ajouter un budget",
+    "editBudget": "Modifier le budget",
+    "cardTitle": "Vos objectifs budgétaires",
+    "cardDescription": "Créez et suivez vos objectifs d'épargne et vos projets.",
+    "availableToSave": "Disponible pour cet Objectif",
+    "availableToSaveDescription": "Fonds totaux dans les comptes non liquides.",
+    "remainingAfterAvailable": "Encore Nécessaire",
+    "suggestedMonthlySaving": "Épargne Mensuelle Suggérée",
+    "suggestedDailySaving": "Épargne Quotidienne Suggérée",
+    "predictedAchievementDate": "Date d'Achèvement Prédite",
+    "table": {
+      "name": "Nom du budget",
+      "progress": "Progression",
+      "targetAmount": "Montant cible",
+      "currentAmount": "Économisé",
+      "targetDate": "Date cible",
+      "actions": "Actions"
+    },
+    "form": {
+      "name": "Nom du budget",
+      "namePlaceholder": "ex. Vacances au Japon",
+      "description": "Description (Optionnel)",
+      "descriptionPlaceholder": "Une brève description de votre objectif",
+      "targetAmount": "Montant cible",
+      "targetAmountPlaceholder": "2000.00",
+      "currentAmount": "Montant actuel économisé",
+      "currentAmountPlaceholder": "0.00",
+      "targetDate": "Date cible",
+      "pickDate": "Choisissez une date",
+      "linkAccounts": "Lier les comptes au budget",
+      "linkAccountsDescription": "Sélectionnez les comptes qui contribueront au montant 'Disponible pour épargner' de cet objectif."
+    }
+  },
+  "recurring": {
+    "title": "Transactions Récurrentes",
+    "add": "Ajouter Récurrent",
+    "edit": "Modifier Transaction Récurrente",
+    "cardTitle": "Vos Transactions Récurrentes",
+    "cardDescription": "Définissez des modèles pour les transactions qui se produisent régulièrement.",
+    "table": {
+      "description": "Description",
+      "category": "Catégorie",
+      "account": "Compte",
+      "frequency": "Fréquence",
+      "nextDueDate": "Prochaine Échéance",
+      "amount": "Montant",
+      "actions": "Actions"
+    },
+    "form": {
+      "description": "Description",
+      "descriptionPlaceholder": "ex. Salaire Mensuel",
+      "amount": "Montant",
+      "amountPlaceholder": "0.00",
+      "type": "Type",
+      "typePlaceholder": "Sélectionnez un type de transaction",
+      "category": "Catégorie",
+      "categoryPlaceholder": "Sélectionnez une catégorie",
+      "account": "Compte",
+      "accountPlaceholder": "Sélectionnez un compte",
+      "frequency": "Fréquence",
+      "frequencyPlaceholder": "Sélectionnez la fréquence",
+      "startDate": "Date de Début",
+      "endDate": "Date de Fin",
+      "noEndDate": "Pas de date de fin",
+      "pickDate": "Choisissez une date"
+    },
+    "frequencies": {
+      "monthly": "Mensuel",
+      "quarterly": "Trimestriel (3 mois)",
+      "semi-annually": "Semestriel (6 mois)",
+      "yearly": "Annuel"
+    }
+  },
+  "reports": {
+    "title": "Rapports",
+    "summary": "Résumé",
+    "spendingByCategory": "Dépenses par Catégorie",
+    "spendingDescription": "Une ventilation de vos dépenses pour la période sélectionnée.",
+    "incomeByCategory": "Revenus par Catégorie",
+    "incomeDescription": "Une ventilation de vos revenus pour la période sélectionnée.",
+    "incomeVsExpense": "Revenus vs. Dépenses",
+    "incomeVsExpenseDescription": "Un résumé de vos revenus et dépenses des 6 derniers mois.",
+    "overall": "Global",
+    "totalIncome": "Revenu Total",
+    "totalExpenses": "Dépenses Totales",
+    "netSavings": "Épargne Nette",
+    "aiSummaryTitle": "Résumé Financier IA",
+    "aiSummaryDescription": "Une analyse intelligente de votre activité financière.",
+    "mainCurrencyNote": "Basé sur votre devise principale",
+    "narrativeTitle": "Résumé Narratif",
+    "adviceTitle": "Conseil Personnalisé",
+    "noData": "Aucune donnée pour cette période.",
+    "noDataDescription": "Essayez de sélectionner une autre période ou d'ajouter des transactions."
+  },
+  "settings": {
+    "title": "Paramètres",
+    "currenciesTitle": "Devises Disponibles",
+    "currenciesDescription": "Une liste complète des devises mondiales disponibles dans l'application.",
+    "table": {
+      "code": "Code",
+      "name": "Nom",
+      "symbol": "Symbole"
+    }
+  },
+  "transactions": {
+    "title": "Transactions",
+    "transfer": "Virement",
+    "add": "Ajouter Transaction",
+    "edit": "Modifier Transaction",
+    "cardTitle": "Vos Transactions",
+    "cardDescription": "Visualisez et gérez toutes vos activités financières.",
+    "tabs": {
+      "all": "Toutes",
+      "income": "Revenus",
+      "expenses": "Dépenses",
+      "transfers": "Virements"
+    },
+    "table": {
+      "description": "Description",
+      "transactionType": "Type",
+      "category": "Catégorie",
+      "date": "Date",
+      "account": "Compte",
+      "amount": "Montant",
+      "actions": "Actions"
+    },
+    "transactionTypes": {
+      "Regular": "Régulière",
+      "Transfer": "Virement",
+      "Recurring": "Récurrente"
+    },
+    "form": {
+      "description": "Description",
+      "descriptionPlaceholder": "ex. Épicerie",
+      "amount": "Montant",
+      "amountPlaceholder": "0.00",
+      "type": "Type",
+      "typePlaceholder": "Sélectionnez un type de transaction",
+      "category": "Catégorie",
+      "categoryPlaceholder": "Sélectionnez une catégorie",
+      "account": "Compte",
+      "accountPlaceholder": "Sélectionnez un compte",
+      "date": "Date",
+      "pickDate": "Choisissez une date"
+    },
+    "transferForm": {
+      "title": "Virement d'Argent",
+      "fromAccount": "Du Compte",
+      "fromAccountPlaceholder": "Sélectionnez le compte source",
+      "toAccount": "Au Compte",
+      "toAccountPlaceholder": "Sélectionnez le compte de destination",
+      "amount": "Montant",
+      "description": "Description (Optionnel)",
+      "descriptionPlaceholder": "ex. Virement épargne",
+      "date": "Date",
+      "save": "Enregistrer le Virement"
+    },
+    "actions": {
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "editDisabledWarning": "La modification des virements ou des transactions récurrentes n'est pas prise en charge ici."
+    }
+  },
+  "common": {
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "day": "Jour",
+    "week": "Semaine",
+    "month": "Mois",
+    "year": "An",
+    "pickDateRange": "Choisissez une période"
+  }
+}
+
+    
