@@ -5,7 +5,7 @@ import React from 'react';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
-import { FirebaseClientProvider } from '@/firebase';
+import { FirebaseClientProvider, useFirebase } from '@/firebase';
 import { TopNav } from '@/components/layout/top-nav';
 import { LanguageProvider } from '@/context/language-context';
 import { ThemeProvider } from 'next-themes';
