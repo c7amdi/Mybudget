@@ -150,7 +150,7 @@ function ThemeSelector() {
     const { setTheme, theme } = useTheme();
 
     return (
-        <div className="grid grid-cols-3 gap-2 rounded-lg bg-muted p-1">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 rounded-lg bg-muted p-1">
             <Button
               variant={theme === "light" ? "default" : "ghost"}
               size="sm"
@@ -505,7 +505,7 @@ export default function SettingsPage() {
               </CardDescription>
           </CardHeader>
           <CardContent>
-            <ScrollArea className="h-[400px]">
+            <ScrollArea className="h-[400px] w-full whitespace-nowrap rounded-md border">
               <Table>
                 <TableHeader>
                   <TableRow>

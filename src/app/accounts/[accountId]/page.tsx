@@ -23,6 +23,7 @@ import type { DateRange } from 'react-day-picker';
 import { useTranslation } from '@/hooks/use-translation';
 import { getCurrencySymbol } from '@/lib/currencies';
 import { convertToTND, getBaseCurrency } from '@/lib/exchange-rates';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 type ChartView = "day" | "week" | "month" | "year" | "custom";
 
@@ -211,21 +212,21 @@ export default function AccountDetailPage() {
       </div>
 
        <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
+          <CardHeader className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div>
               <CardTitle className="font-headline">{t('accountDetail.chartTitle')}</CardTitle>
             </div>
-            <div className='flex items-center gap-2'>
+            <div className='flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto'>
               <ToggleGroup 
                 type="single" 
                 value={chartView}
                 onValueChange={(value: ChartView) => value && setChartView(value)}
-                className="gap-1"
+                className="gap-1 w-full sm:w-auto"
               >
-                <ToggleGroupItem value="day" size="sm">{t('common.day')}</ToggleGroupItem>
-                <ToggleGroupItem value="week" size="sm">{t('common.week')}</ToggleGroupItem>
-                <ToggleGroupItem value="month" size="sm">{t('common.month')}</ToggleGroupItem>
-                <ToggleGroupItem value="year" size="sm">{t('common.year')}</ToggleGroupItem>
+                <ToggleGroupItem value="day" size="sm" className="flex-1">{t('common.day')}</ToggleGroupItem>
+                <ToggleGroupItem value="week" size="sm" className="flex-1">{t('common.week')}</ToggleGroupItem>
+                <ToggleGroupItem value="month" size="sm" className="flex-1">{t('common.month')}</ToggleGroupItem>
+                <ToggleGroupItem value="year" size="sm" className="flex-1">{t('common.year')}</ToggleGroupItem>
               </ToggleGroup>
               <Popover>
                 <PopoverTrigger asChild>
@@ -233,7 +234,7 @@ export default function AccountDetailPage() {
                     id="date"
                     variant={"outline"}
                     className={cn(
-                      "w-[300px] justify-start text-left font-normal",
+                      "w-full sm:w-[300px] justify-start text-left font-normal",
                       !dateRange && "text-muted-foreground"
                     )}
                   >
@@ -343,36 +344,38 @@ export default function AccountDetailPage() {
           <CardDescription>{t('accountDetail.transactionsDescription')}</CardDescription>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>{t('accountDetail.table.description')}</TableHead>
-                <TableHead>{t('accountDetail.table.category')}</TableHead>
-                <TableHead>{t('accountDetail.table.date')}</TableHead>
-                <TableHead className="text-right">{t('accountDetail.table.amount')}</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {transactions.map((transaction) => (
-                <TableRow key={transaction.id}>
-                  <TableCell className="font-medium">{transaction.description}</TableCell>
-                  <TableCell>
-                    {transaction.category && <Badge variant="outline">{transaction.category.name}</Badge>}
-                  </TableCell>
-                  <TableCell>{format(transaction.date, "MMM d, yyyy")}</TableCell>
-                  <TableCell
-                    className={cn(
-                      "text-right",
-                      transaction.type === "income" ? "text-green-500" : "text-red-500"
-                    )}
-                  >
-                    {transaction.type === "income" ? "+" : "-"} {currencySymbol}{' '}
-                    {transaction.amount.toFixed(2)}
-                  </TableCell>
+          <ScrollArea className="w-full whitespace-nowrap rounded-md border">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>{t('accountDetail.table.description')}</TableHead>
+                  <TableHead>{t('accountDetail.table.category')}</TableHead>
+                  <TableHead>{t('accountDetail.table.date')}</TableHead>
+                  <TableHead className="text-right">{t('accountDetail.table.amount')}</TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+              </TableHeader>
+              <TableBody>
+                {transactions.map((transaction) => (
+                  <TableRow key={transaction.id}>
+                    <TableCell className="font-medium">{transaction.description}</TableCell>
+                    <TableCell>
+                      {transaction.category && <Badge variant="outline">{transaction.category.name}</Badge>}
+                    </TableCell>
+                    <TableCell>{format(transaction.date, "MMM d, yyyy")}</TableCell>
+                    <TableCell
+                      className={cn(
+                        "text-right",
+                        transaction.type === "income" ? "text-green-500" : "text-red-500"
+                      )}
+                    >
+                      {transaction.type === "income" ? "+" : "-"} {currencySymbol}{' '}
+                      {transaction.amount.toFixed(2)}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </ScrollArea>
         </CardContent>
       </Card>
     </div>

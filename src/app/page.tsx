@@ -63,6 +63,7 @@ import { useTranslation } from '@/hooks/use-translation';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { getCurrencySymbol } from '@/lib/currencies';
 import { convertToTND, getBaseCurrency } from '@/lib/exchange-rates';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 type ChartView = 'day' | 'week' | 'month' | 'year' | 'custom';
 
@@ -461,28 +462,28 @@ export default function DashboardPage() {
       
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
         <Card className="lg:col-span-3">
-          <CardHeader className="flex flex-row items-center justify-between">
+          <CardHeader className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div>
               <CardTitle className="font-headline">{t('dashboard.overview')}</CardTitle>
               <CardDescription>{t('dashboard.overviewDescription')}</CardDescription>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
               <ToggleGroup
                 type="single"
                 value={chartView}
                 onValueChange={(value: ChartView) => value && setChartView(value)}
-                className="gap-1"
+                className="gap-1 w-full sm:w-auto"
               >
-                <ToggleGroupItem value="day" size="sm">
+                <ToggleGroupItem value="day" size="sm" className="flex-1">
                   {t('common.day')}
                 </ToggleGroupItem>
-                <ToggleGroupItem value="week" size="sm">
+                <ToggleGroupItem value="week" size="sm" className="flex-1">
                   {t('common.week')}
                 </ToggleGroupItem>
-                <ToggleGroupItem value="month" size="sm">
+                <ToggleGroupItem value="month" size="sm" className="flex-1">
                   {t('common.month')}
                 </ToggleGroupItem>
-                <ToggleGroupItem value="year" size="sm">
+                <ToggleGroupItem value="year" size="sm" className="flex-1">
                   {t('common.year')}
                 </ToggleGroupItem>
               </ToggleGroup>
@@ -492,7 +493,7 @@ export default function DashboardPage() {
                     id="date"
                     variant={'outline'}
                     className={cn(
-                      'w-[300px] justify-start text-left font-normal',
+                      'w-full sm:w-[300px] justify-start text-left font-normal',
                       !dateRange && 'text-muted-foreground'
                     )}
                   >
@@ -552,47 +553,49 @@ export default function DashboardPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>{t('transactions.table.description')}</TableHead>
-                  <TableHead>{t('transactions.table.category')}</TableHead>
-                  <TableHead className="text-right">{t('transactions.table.amount')}</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {recentTransactions.map((transaction) => (
-                  <TableRow key={transaction.id}>
-                    <TableCell>
-                      <div className="font-medium">
-                        {transaction.description}
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        {isValid(transaction.date) ? format(transaction.date, 'MMM d, yyyy') : 'Invalid Date'}
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      {transaction.category && (
-                        <Badge variant="outline">
-                          {transaction.category.name}
-                        </Badge>
-                      )}
-                    </TableCell>
-                    <TableCell
-                      className={cn(
-                        'text-right',
-                        transaction.type === 'income'
-                          ? 'text-green-500'
-                          : 'text-red-500'
-                      )}
-                    >
-                      {transaction.type === 'income' ? '+' : '-'} {getCurrencySymbol(accountsData?.find(a => a.id === transaction.accountId)?.currency || 'USD')}{' '}
-                      {transaction.amount.toLocaleString()}
-                    </TableCell>
+            <ScrollArea className="w-full whitespace-nowrap rounded-md border">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>{t('transactions.table.description')}</TableHead>
+                    <TableHead>{t('transactions.table.category')}</TableHead>
+                    <TableHead className="text-right">{t('transactions.table.amount')}</TableHead>
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                </TableHeader>
+                <TableBody>
+                  {recentTransactions.map((transaction) => (
+                    <TableRow key={transaction.id}>
+                      <TableCell>
+                        <div className="font-medium">
+                          {transaction.description}
+                        </div>
+                        <div className="text-sm text-muted-foreground">
+                          {isValid(transaction.date) ? format(transaction.date, 'MMM d, yyyy') : 'Invalid Date'}
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        {transaction.category && (
+                          <Badge variant="outline">
+                            {transaction.category.name}
+                          </Badge>
+                        )}
+                      </TableCell>
+                      <TableCell
+                        className={cn(
+                          'text-right',
+                          transaction.type === 'income'
+                            ? 'text-green-500'
+                            : 'text-red-500'
+                        )}
+                      >
+                        {transaction.type === 'income' ? '+' : '-'} {getCurrencySymbol(accountsData?.find(a => a.id === transaction.accountId)?.currency || 'USD')}{' '}
+                        {transaction.amount.toLocaleString()}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </ScrollArea>
           </CardContent>
         </Card>
       </div>

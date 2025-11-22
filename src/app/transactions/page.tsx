@@ -916,91 +916,93 @@ function TransactionsPageContent() {
   );
 
   const TransactionTable = ({ data }: { data: UnifiedTransaction[] }) => (
-    <Table>
-      <TableHeader>
-        <TableRow>
-          <SortableHeader sortKey="description">{t('transactions.table.description')}</SortableHeader>
-          <SortableHeader sortKey="transactionType">{t('transactions.table.transactionType')}</SortableHeader>
-          <SortableHeader sortKey="category">{t('transactions.table.category')}</SortableHeader>
-          <SortableHeader sortKey="date">{t('transactions.table.date')}</SortableHeader>
-          <SortableHeader sortKey="account">{t('transactions.table.account')}</SortableHeader>
-          <SortableHeader sortKey="amount">{t('transactions.table.amount')}</SortableHeader>
-          <TableHead className="text-right">{t('transactions.table.actions')}</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {data.map((transaction) => (
-          <TableRow key={transaction.id}>
-            <TableCell className="font-medium">
-              {transaction.description}
-            </TableCell>
-            <TableCell>
-              <Badge
-                variant={
-                  transaction.transactionType === "Transfer"
-                    ? "secondary"
-                    : transaction.transactionType === "Recurring"
-                    ? "outline"
-                    : "default"
-                }
+    <ScrollArea className="w-full whitespace-nowrap rounded-md border">
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <SortableHeader sortKey="description">{t('transactions.table.description')}</SortableHeader>
+            <SortableHeader sortKey="transactionType">{t('transactions.table.transactionType')}</SortableHeader>
+            <SortableHeader sortKey="category">{t('transactions.table.category')}</SortableHeader>
+            <SortableHeader sortKey="date">{t('transactions.table.date')}</SortableHeader>
+            <SortableHeader sortKey="account">{t('transactions.table.account')}</SortableHeader>
+            <SortableHeader sortKey="amount">{t('transactions.table.amount')}</SortableHeader>
+            <TableHead className="text-right">{t('transactions.table.actions')}</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {data.map((transaction) => (
+            <TableRow key={transaction.id}>
+              <TableCell className="font-medium">
+                {transaction.description}
+              </TableCell>
+              <TableCell>
+                <Badge
+                  variant={
+                    transaction.transactionType === "Transfer"
+                      ? "secondary"
+                      : transaction.transactionType === "Recurring"
+                      ? "outline"
+                      : "default"
+                  }
+                  className={cn(
+                      transaction.transactionType === 'Regular' && 'border-transparent bg-transparent text-foreground px-0'
+                  )}
+                >
+                  {t(`transactions.transactionTypes.${transaction.transactionType}`)}
+                </Badge>
+              </TableCell>
+              <TableCell>
+                {transaction.category && (
+                  <Badge variant="outline">{transaction.category.name}</Badge>
+                )}
+              </TableCell>
+              <TableCell>
+                {transaction.date instanceof Date
+                  ? format(transaction.date, "MMM d, yyyy")
+                  : "Invalid Date"}
+              </TableCell>
+              <TableCell>
+                {transaction.account?.name}
+              </TableCell>
+              <TableCell
                 className={cn(
-                    transaction.transactionType === 'Regular' && 'border-transparent bg-transparent text-foreground px-0'
+                  "text-right",
+                  transaction.type === "income"
+                    ? "text-green-500"
+                    : transaction.type === "expense"
+                    ? "text-red-500"
+                    : ""
                 )}
               >
-                {t(`transactions.transactionTypes.${transaction.transactionType}`)}
-              </Badge>
-            </TableCell>
-            <TableCell>
-              {transaction.category && (
-                <Badge variant="outline">{transaction.category.name}</Badge>
-              )}
-            </TableCell>
-            <TableCell>
-              {transaction.date instanceof Date
-                ? format(transaction.date, "MMM d, yyyy")
-                : "Invalid Date"}
-            </TableCell>
-            <TableCell>
-              {transaction.account?.name}
-            </TableCell>
-            <TableCell
-              className={cn(
-                "text-right",
-                transaction.type === "income"
-                  ? "text-green-500"
-                  : transaction.type === "expense"
-                  ? "text-red-500"
-                  : ""
-              )}
-            >
-              {transaction.type === "income" ? "+" : "-"} {transaction.account ? getCurrencySymbol(transaction.account.currency) : '$'}{' '}
-              {transaction.amount.toFixed(2)}
-            </TableCell>
-            <TableCell className="flex justify-end gap-2">
-              <Button
-                size="icon"
-                variant="ghost"
-                className="h-8 w-8"
-                onClick={() => handleEditClick(transaction)}
-                disabled={transaction.transactionType !== 'Regular'}
-              >
-                <Edit className="h-4 w-4" />
-                <span className="sr-only">{t('transactions.actions.edit')}</span>
-              </Button>
-              <Button
-                size="icon"
-                variant="ghost"
-                className="h-8 w-8 text-red-500 hover:text-red-500"
-                onClick={() => handleDeleteTransaction(transaction as TransactionType)}
-              >
-                <Trash2 className="h-4 w-4" />
-                <span className="sr-only">{t('transactions.actions.delete')}</span>
-              </Button>
-            </TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+                {transaction.type === "income" ? "+" : "-"} {transaction.account ? getCurrencySymbol(transaction.account.currency) : '$'}{' '}
+                {transaction.amount.toFixed(2)}
+              </TableCell>
+              <TableCell className="flex justify-end gap-2">
+                <Button
+                  size="icon"
+                  variant="ghost"
+                  className="h-8 w-8"
+                  onClick={() => handleEditClick(transaction)}
+                  disabled={transaction.transactionType !== 'Regular'}
+                >
+                  <Edit className="h-4 w-4" />
+                  <span className="sr-only">{t('transactions.actions.edit')}</span>
+                </Button>
+                <Button
+                  size="icon"
+                  variant="ghost"
+                  className="h-8 w-8 text-red-500 hover:text-red-500"
+                  onClick={() => handleDeleteTransaction(transaction as TransactionType)}
+                >
+                  <Trash2 className="h-4 w-4" />
+                  <span className="sr-only">{t('transactions.actions.delete')}</span>
+                </Button>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </ScrollArea>
   );
 
   if (!accountsData || accountsData.length === 0) {
@@ -1070,19 +1072,21 @@ function TransactionsPageContent() {
       </Dialog>
       <div className="flex flex-col gap-6">
         <PageHeader title={t('transactions.title')}>
-          <Button variant="outline" onClick={() => setIsTransferFormOpen(true)}>
-            <ArrowRightLeft />
-            {t('transactions.transfer')}
-          </Button>
-          <Button
-            onClick={() => {
-              setEditingTransaction(undefined);
-              setIsTxFormOpen(true);
-            }}
-          >
-            <PlusCircle />
-            {t('transactions.add')}
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-2">
+            <Button variant="outline" onClick={() => setIsTransferFormOpen(true)}>
+              <ArrowRightLeft />
+              {t('transactions.transfer')}
+            </Button>
+            <Button
+              onClick={() => {
+                setEditingTransaction(undefined);
+                setIsTxFormOpen(true);
+              }}
+            >
+              <PlusCircle />
+              {t('transactions.add')}
+            </Button>
+          </div>
         </PageHeader>
         <Card>
           <CardHeader>
@@ -1095,7 +1099,7 @@ function TransactionsPageContent() {
           </CardHeader>
           <CardContent>
             <Tabs value={activeTab} onValueChange={setActiveTab}>
-              <TabsList>
+              <TabsList className="grid w-full grid-cols-2 sm:w-auto sm:grid-cols-4">
                 <TabsTrigger value="all">{t('transactions.tabs.all')}</TabsTrigger>
                 <TabsTrigger value="income">{t('transactions.tabs.income')}</TabsTrigger>
                 <TabsTrigger value="expenses">{t('transactions.tabs.expenses')}</TabsTrigger>

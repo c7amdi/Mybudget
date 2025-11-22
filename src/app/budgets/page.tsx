@@ -578,7 +578,7 @@ export default function BudgetsPage() {
         </PageHeader>
         
         <Card>
-          <CardHeader className="flex-row items-center justify-between">
+          <CardHeader className="flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div>
               <CardTitle className="font-headline flex items-center gap-2"><TrendingUp/> Future Balance Projection</CardTitle>
               <CardDescription>Select a future date to see your predicted balances.</CardDescription>
@@ -588,7 +588,7 @@ export default function BudgetsPage() {
                     <Button
                       variant={"outline"}
                       className={cn(
-                        "w-[280px] justify-start text-left font-normal",
+                        "w-full sm:w-[280px] justify-start text-left font-normal",
                         !projectionDate && "text-muted-foreground"
                       )}
                     >
@@ -608,41 +608,43 @@ export default function BudgetsPage() {
                 </Popover>
           </CardHeader>
           <CardContent>
-             <Table>
-                <TableHeader>
-                    <TableRow>
-                        <TableHead>Account</TableHead>
-                        <TableHead>Current Balance</TableHead>
-                        <TableHead className="text-right">Predicted Balance</TableHead>
-                    </TableRow>
-                </TableHeader>
-                <TableBody>
-                    {projectedBalances.accountBalances.map(account => (
-                        <TableRow key={account.id}>
-                            <TableCell className="font-medium">{account.name}</TableCell>
-                            <TableCell>{getCurrencySymbol(account.currency)} {account.balance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</TableCell>
-                            <TableCell className="text-right font-semibold">
-                                {getCurrencySymbol(account.currency)} {account.predictedBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                                {account.currency !== projectedBalances.baseCurrency && (
-                                    <span className="ml-2 text-xs text-muted-foreground">
-                                       ({projectedBalances.baseCurrencySymbol}{' '}
-                                        {account.predictedBalanceInBase.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                                        {account.exchangeRateInfo?.isUnofficial && '*'})
-                                    </span>
-                                )}
-                            </TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-                <TableFooter>
-                    <TableRow>
-                        <TableCell colSpan={2} className="font-bold">Total Predicted Net Worth</TableCell>
-                        <TableCell className="text-right font-bold text-lg text-primary">
-                            {projectedBalances.baseCurrencySymbol} {projectedBalances.totalPredictedNetWorth.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                        </TableCell>
-                    </TableRow>
-                </TableFooter>
-            </Table>
+             <ScrollArea className="w-full whitespace-nowrap rounded-md border">
+              <Table>
+                  <TableHeader>
+                      <TableRow>
+                          <TableHead>Account</TableHead>
+                          <TableHead>Current Balance</TableHead>
+                          <TableHead className="text-right">Predicted Balance</TableHead>
+                      </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                      {projectedBalances.accountBalances.map(account => (
+                          <TableRow key={account.id}>
+                              <TableCell className="font-medium">{account.name}</TableCell>
+                              <TableCell>{getCurrencySymbol(account.currency)} {account.balance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</TableCell>
+                              <TableCell className="text-right font-semibold">
+                                  {getCurrencySymbol(account.currency)} {account.predictedBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                  {account.currency !== projectedBalances.baseCurrency && (
+                                      <span className="ml-2 text-xs text-muted-foreground">
+                                        ({projectedBalances.baseCurrencySymbol}{' '}
+                                          {account.predictedBalanceInBase.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                          {account.exchangeRateInfo?.isUnofficial && '*'})
+                                      </span>
+                                  )}
+                              </TableCell>
+                          </TableRow>
+                      ))}
+                  </TableBody>
+                  <TableFooter>
+                      <TableRow>
+                          <TableCell colSpan={2} className="font-bold">Total Predicted Net Worth</TableCell>
+                          <TableCell className="text-right font-bold text-lg text-primary">
+                              {projectedBalances.baseCurrencySymbol} {projectedBalances.totalPredictedNetWorth.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                          </TableCell>
+                      </TableRow>
+                  </TableFooter>
+              </Table>
+            </ScrollArea>
           </CardContent>
         </Card>
 

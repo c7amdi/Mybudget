@@ -60,6 +60,7 @@ import { collection, doc, Timestamp, runTransaction } from "firebase/firestore";
 import { useTranslation } from '@/hooks/use-translation';
 import { Checkbox } from "@/components/ui/checkbox";
 import { getCurrencySymbol } from "@/lib/currencies";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const recurringTransactionSchema = z.object({
   id: z.string().optional(),
@@ -620,73 +621,75 @@ export default function RecurringPage() {
               </CardDescription>
           </CardHeader>
           <CardContent>
-            <Table>
-                <TableHeader>
-                    <TableRow>
-                    <SortableHeader sortKey="description">{t('recurring.table.description')}</SortableHeader>
-                    <SortableHeader sortKey="category">{t('recurring.table.category')}</SortableHeader>
-                    <SortableHeader sortKey="account">{t('recurring.table.account')}</SortableHeader>
-                    <SortableHeader sortKey="frequency">{t('recurring.table.frequency')}</SortableHeader>
-                    <SortableHeader sortKey="nextDueDate">{t('recurring.table.nextDueDate')}</SortableHeader>
-                    <SortableHeader sortKey="amount" className="text-right">{t('recurring.table.amount')}</SortableHeader>
-                    <TableHead className="text-right">
-                        {t('recurring.table.actions')}
-                    </TableHead>
-                    </TableRow>
-                </TableHeader>
-                <TableBody>
-                    {sortedRecurringTransactions.map((transaction) => (
-                    <TableRow key={transaction.id}>
-                        <TableCell className="font-medium">
-                        {transaction.description}
-                        </TableCell>
-                        <TableCell>
-                        {transaction.category && <Badge variant="outline">{transaction.category.name}</Badge>}
-                        </TableCell>
-                        <TableCell>
-                        {transaction.account?.name}
-                        </TableCell>
-                        <TableCell className="capitalize">
-                         {t(`recurring.frequencies.${transaction.frequency}`)}
-                        </TableCell>
-                        <TableCell>
-                         {format(transaction.nextDueDate, "MMM d, yyyy")}
-                        </TableCell>
-                        <TableCell
-                        className={cn(
-                            "text-right",
-                            transaction.type === "income"
-                            ? "text-green-500"
-                            : "text-red-500"
-                        )}
-                        >
-                        {transaction.type === "income" ? "+" : "-"} {transaction.account ? getCurrencySymbol(transaction.account.currency) : '$'}{' '}
-                        {transaction.amount.toFixed(2)}
-                        </TableCell>
-                        <TableCell className="flex justify-end gap-2">
-                            <Button
-                                size="icon"
-                                variant="ghost"
-                                className="h-8 w-8"
-                                onClick={() => handleEditClick(transaction.id)}
-                            >
-                                <Edit className="h-4 w-4" />
-                                <span className="sr-only">{t('categories.actions.edit')}</span>
-                            </Button>
-                            <Button
-                                size="icon"
-                                variant="ghost"
-                                className="h-8 w-8 text-red-500 hover:text-red-500"
-                                onClick={() => handleDeleteTransaction(transaction as RecurringTransactionType)}
-                            >
-                                <Trash2 className="h-4 w-4" />
-                                <span className="sr-only">{t('categories.actions.delete')}</span>
-                            </Button>
-                        </TableCell>
-                    </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
+            <ScrollArea className="w-full whitespace-nowrap rounded-md border">
+              <Table>
+                  <TableHeader>
+                      <TableRow>
+                      <SortableHeader sortKey="description">{t('recurring.table.description')}</SortableHeader>
+                      <SortableHeader sortKey="category">{t('recurring.table.category')}</SortableHeader>
+                      <SortableHeader sortKey="account">{t('recurring.table.account')}</SortableHeader>
+                      <SortableHeader sortKey="frequency">{t('recurring.table.frequency')}</SortableHeader>
+                      <SortableHeader sortKey="nextDueDate">{t('recurring.table.nextDueDate')}</SortableHeader>
+                      <SortableHeader sortKey="amount" className="text-right">{t('recurring.table.amount')}</SortableHeader>
+                      <TableHead className="text-right">
+                          {t('recurring.table.actions')}
+                      </TableHead>
+                      </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                      {sortedRecurringTransactions.map((transaction) => (
+                      <TableRow key={transaction.id}>
+                          <TableCell className="font-medium">
+                          {transaction.description}
+                          </TableCell>
+                          <TableCell>
+                          {transaction.category && <Badge variant="outline">{transaction.category.name}</Badge>}
+                          </TableCell>
+                          <TableCell>
+                          {transaction.account?.name}
+                          </TableCell>
+                          <TableCell className="capitalize">
+                          {t(`recurring.frequencies.${transaction.frequency}`)}
+                          </TableCell>
+                          <TableCell>
+                          {format(transaction.nextDueDate, "MMM d, yyyy")}
+                          </TableCell>
+                          <TableCell
+                          className={cn(
+                              "text-right",
+                              transaction.type === "income"
+                              ? "text-green-500"
+                              : "text-red-500"
+                          )}
+                          >
+                          {transaction.type === "income" ? "+" : "-"} {transaction.account ? getCurrencySymbol(transaction.account.currency) : '$'}{' '}
+                          {transaction.amount.toFixed(2)}
+                          </TableCell>
+                          <TableCell className="flex justify-end gap-2">
+                              <Button
+                                  size="icon"
+                                  variant="ghost"
+                                  className="h-8 w-8"
+                                  onClick={() => handleEditClick(transaction.id)}
+                              >
+                                  <Edit className="h-4 w-4" />
+                                  <span className="sr-only">{t('categories.actions.edit')}</span>
+                              </Button>
+                              <Button
+                                  size="icon"
+                                  variant="ghost"
+                                  className="h-8 w-8 text-red-500 hover:text-red-500"
+                                  onClick={() => handleDeleteTransaction(transaction as RecurringTransactionType)}
+                              >
+                                  <Trash2 className="h-4 w-4" />
+                                  <span className="sr-only">{t('categories.actions.delete')}</span>
+                              </Button>
+                          </TableCell>
+                      </TableRow>
+                      ))}
+                  </TableBody>
+              </Table>
+            </ScrollArea>
           </CardContent>
         </Card>
       </div>
