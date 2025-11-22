@@ -50,6 +50,9 @@ export default function RootLayout({
           <head>
             <title>BudgetWise</title>
             <meta name="description" content="Manage all your detailed expenses and incomes." />
+            <link rel="manifest" href="/manifest.json" />
+            <link rel="apple-touch-icon" href="/icon-192x192.png" />
+            <meta name="theme-color" content="#1f6f6f" />
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
             <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
