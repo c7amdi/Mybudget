@@ -12,12 +12,10 @@ import {
   LineChart,
   Settings,
   Repeat,
-  Menu,
   WalletCards,
   PiggyBank,
   User as UserIcon,
 } from 'lucide-react';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -28,13 +26,14 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
 import { useTranslation } from '@/hooks/use-translation';
 import { useLanguage, type Language } from '@/context/language-context';
 import { useFirebase } from '@/firebase';
 import { signOut } from 'firebase/auth';
 import { useToast } from '@/hooks/use-toast';
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 const languages: Record<
   Language,
@@ -59,7 +58,6 @@ export function TopNav() {
   const router = useRouter();
   const { user, auth } = useFirebase();
   const { toast } = useToast();
-  const userAvatar = PlaceHolderImages.find((img) => img.id === 'user-avatar');
   const { language, setLanguage } = useLanguage();
   const { t } = useTranslation();
 
@@ -86,103 +84,112 @@ export function TopNav() {
 
 
   return (
-    <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6 z-50">
-      <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
-        <Link
-          href="#"
-          className="flex items-center gap-2 text-lg font-semibold md:text-base"
-        >
-          <WalletCards className="h-6 w-6 text-primary" />
-          <span className="sr-only">BudgetWise</span>
-        </Link>
-        {navItems.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className={cn(
-              'transition-colors hover:text-foreground',
-              pathname === item.href
-                ? 'text-foreground'
-                : 'text-muted-foreground'
-            )}
-          >
-            {item.label}
-          </Link>
-        ))}
-      </nav>
-      <Sheet>
-        <SheetTrigger asChild>
-          <Button variant="outline" size="icon" className="shrink-0 md:hidden">
-            <Menu className="h-5 w-5" />
-            <span className="sr-only">Toggle navigation menu</span>
-          </Button>
-        </SheetTrigger>
-        <SheetContent side="left">
-          <nav className="grid gap-6 text-lg font-medium">
+    <header className="sticky top-0 flex h-auto flex-col border-b bg-background z-50">
+        {/* Main Header Bar */}
+        <div className="flex h-16 items-center gap-4 px-4 md:px-6">
             <Link
-              href="#"
-              className="flex items-center gap-2 text-lg font-semibold"
+                href="/"
+                className="flex items-center gap-2 font-semibold"
             >
-              <WalletCards className="h-6 w-6 text-primary" />
-              <span className="sr-only">BudgetWise</span>
+                <WalletCards className="h-6 w-6 text-primary" />
+                <span className="hidden sm:inline-block">BudgetWise</span>
             </Link>
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  'hover:text-foreground',
-                  pathname === item.href
-                    ? 'text-foreground'
-                    : 'text-muted-foreground'
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-        </SheetContent>
-      </Sheet>
-      <div className="flex w-full items-center justify-end gap-4 md:ml-auto md:gap-2 lg:gap-4">
-        <div className="flex items-center gap-2">
-            {(Object.keys(languages) as Language[]).map((key) => {
-              const lang = languages[key];
-              return (
-                <Button
-                  key={key}
-                  variant={language === key ? "secondary" : "outline"}
-                  onClick={() => setLanguage(key)}
-                  className="gap-2"
-                >
-                  <span>{lang.label}</span>
-                </Button>
-              );
-            })}
-          </div>
+            
+            <div className="flex w-full items-center justify-end gap-2">
+                <div className="hidden items-center gap-2 sm:flex">
+                    {(Object.keys(languages) as Language[]).map((key) => {
+                    const lang = languages[key];
+                    return (
+                        <Button
+                        key={key}
+                        variant={language === key ? "secondary" : "outline"}
+                        size="sm"
+                        onClick={() => setLanguage(key)}
+                        >
+                        <span>{lang.label}</span>
+                        </Button>
+                    );
+                    })}
+                </div>
 
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="secondary" size="icon" className="rounded-full">
-              <Avatar className="h-8 w-8">
-                <AvatarImage src={user?.photoURL || undefined} alt="User avatar" />
-                <AvatarFallback>
-                  <UserIcon className="h-4 w-4" />
-                </AvatarFallback>
-              </Avatar>
-              <span className="sr-only">Toggle user menu</span>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>{user?.email || t('userMenu.myAccount')}</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={() => router.push('/settings')}>
-              {t('userMenu.settings')}
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={handleSignOut}>{t('userMenu.logout')}</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div>
+                <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                    <Button variant="secondary" size="icon" className="rounded-full">
+                        <Avatar className="h-8 w-8">
+                        <AvatarImage src={user?.photoURL || undefined} alt="User avatar" />
+                        <AvatarFallback>
+                            <UserIcon className="h-4 w-4" />
+                        </AvatarFallback>
+                        </Avatar>
+                        <span className="sr-only">Toggle user menu</span>
+                    </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end">
+                    <DropdownMenuLabel>{user?.email || t('userMenu.myAccount')}</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={() => router.push('/settings')}>
+                        {t('userMenu.settings')}
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={handleSignOut}>{t('userMenu.logout')}</DropdownMenuItem>
+                    </DropdownMenuContent>
+                </DropdownMenu>
+            </div>
+        </div>
+
+        {/* Navigation Links Bar */}
+        <nav className="h-14 w-full">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex h-full items-center justify-center gap-4 lg:gap-6 px-6">
+                 {navItems.map((item) => (
+                    <Link
+                        key={item.href}
+                        href={item.href}
+                        className={cn(
+                        'flex flex-col items-center gap-1 text-sm font-medium transition-colors hover:text-primary',
+                        pathname === item.href
+                            ? 'text-primary'
+                            : 'text-muted-foreground'
+                        )}
+                    >
+                        <item.icon className="h-5 w-5" />
+                        <span>{item.label}</span>
+                    </Link>
+                ))}
+            </div>
+
+            {/* Mobile Navigation */}
+            <div className="md:hidden h-full w-full">
+                <TooltipProvider delayDuration={0}>
+                <ScrollArea className="h-full w-full whitespace-nowrap">
+                    <div className="flex h-full items-center justify-start gap-2 px-4">
+                        {navItems.map((item) => (
+                            <Tooltip key={item.href}>
+                                <TooltipTrigger asChild>
+                                    <Link
+                                        href={item.href}
+                                        className={cn(
+                                        'flex h-12 w-12 flex-col items-center justify-center rounded-md transition-colors',
+                                        pathname === item.href
+                                            ? 'bg-primary/10 text-primary'
+                                            : 'text-muted-foreground hover:bg-muted'
+                                        )}
+                                    >
+                                        <item.icon className="h-6 w-6" />
+                                        <span className="sr-only">{item.label}</span>
+                                    </Link>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <p>{item.label}</p>
+                                </TooltipContent>
+                            </Tooltip>
+                        ))}
+                    </div>
+                    <ScrollBar orientation="horizontal" className="h-1.5"/>
+                </ScrollArea>
+                </TooltipProvider>
+            </div>
+        </nav>
     </header>
   );
 }

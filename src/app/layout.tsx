@@ -43,7 +43,7 @@ function AppContent({ children }: { children: React.ReactNode }) {
       {showNav && <TopNav />}
       <main className={cn(
         "flex-1 w-full",
-        showNav && "p-4 md:p-6 lg:p-8 max-w-screen-2xl mx-auto"
+        showNav ? "p-4 md:p-6 lg:p-8 max-w-screen-2xl mx-auto" : ""
       )}>
         {children}
       </main>
