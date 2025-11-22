@@ -247,7 +247,7 @@ export default function AccountsPage() {
   };
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-4">
       <Dialog
         open={isFormOpen}
         onOpenChange={(open) => {
@@ -263,10 +263,10 @@ export default function AccountsPage() {
             </Button>
           </DialogTrigger>
         </PageHeader>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {accounts.map((account) => (
             <Card key={account.id} className="flex flex-col group/card hover:bg-muted/50 transition-colors">
-              <Link href={`/accounts/${account.id}`} className="flex flex-col flex-1 p-6 pb-2">
+              <Link href={`/accounts/${account.id}`} className="flex flex-col flex-1 p-4 pb-2">
                 <CardHeader className="flex flex-row items-center gap-4 p-0">
                   <account.icon className="h-8 w-8 text-muted-foreground" />
                   <div className="flex-1">
@@ -276,8 +276,8 @@ export default function AccountsPage() {
                     <CardDescription>{t(`accounts.types.${account.type}`)}</CardDescription>
                   </div>
                 </CardHeader>
-                <CardContent className="flex-1 p-0 mt-6">
-                  <div className="text-3xl font-bold font-headline">
+                <CardContent className="flex-1 p-0 mt-4">
+                  <div className="text-2xl font-bold font-headline">
                     {getCurrencySymbol(account.currency)} {account.balance.toLocaleString()}
                   </div>
                    {account.currency !== baseCurrency && (
@@ -288,11 +288,11 @@ export default function AccountsPage() {
                     )}
                 </CardContent>
               </Link>
-                <CardFooter className="flex items-center justify-between p-6 pt-2">
+                <CardFooter className="flex items-center justify-between p-4 pt-2">
                   <p className="text-xs text-muted-foreground">
                     {t('accounts.currencyLabel')}: {account.currency}
                   </p>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1">
                      <Button
                         size="icon"
                         variant="ghost"

@@ -371,7 +371,7 @@ export default function DashboardPage() {
 
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-4">
       <PageHeader title={t('dashboard.title')}>
         <Button asChild>
           <Link href="/transactions">
@@ -382,8 +382,8 @@ export default function DashboardPage() {
       </PageHeader>
       <div className="space-y-4">
         {Object.entries(summaryByCurrency).map(([currency, summary]) => (
-            <div key={currency} className="mb-8">
-                <h2 className="text-xl font-semibold mb-4">{currency} Summary</h2>
+            <div key={currency} className="mb-4">
+                <h2 className="text-lg font-semibold mb-2">{currency} Summary</h2>
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                     <Link href="/accounts" className="block">
                         <Card className="hover:bg-muted/50 transition-colors h-full">
@@ -392,7 +392,7 @@ export default function DashboardPage() {
                             <DollarSign className="h-4 w-4 text-muted-foreground" />
                             </CardHeader>
                             <CardContent>
-                            <div className="text-2xl font-bold font-headline">
+                            <div className="text-xl font-bold font-headline">
                                 {getCurrencySymbol(currency)} {summary.netWorth.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                             </div>
                              {currency !== baseCurrency && (
@@ -416,7 +416,7 @@ export default function DashboardPage() {
                             <ArrowUpRight className="h-4 w-4 text-green-500" />
                             </CardHeader>
                             <CardContent>
-                            <div className="text-2xl font-bold font-headline text-green-500">
+                            <div className="text-xl font-bold font-headline text-green-500">
                                 +{getCurrencySymbol(currency)} {summary.monthlyIncome.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                             </div>
                             {currency !== baseCurrency && (
@@ -440,7 +440,7 @@ export default function DashboardPage() {
                             <ArrowDownLeft className="h-4 w-4 text-red-500" />
                             </CardHeader>
                             <CardContent>
-                            <div className="text-2xl font-bold font-headline text-red-500">
+                            <div className="text-xl font-bold font-headline text-red-500">
                                 -{getCurrencySymbol(currency)} {summary.monthlyExpenses.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                             </div>
                              {currency !== baseCurrency && (
@@ -460,7 +460,7 @@ export default function DashboardPage() {
         ))}
       </div>
       
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-5">
         <Card className="lg:col-span-3">
           <CardHeader className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div>
@@ -493,7 +493,7 @@ export default function DashboardPage() {
                     id="date"
                     variant={'outline'}
                     className={cn(
-                      'w-full sm:w-[300px] justify-start text-left font-normal',
+                      'w-full sm:w-[260px] justify-start text-left font-normal',
                       !dateRange && 'text-muted-foreground'
                     )}
                   >
@@ -553,7 +553,7 @@ export default function DashboardPage() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <ScrollArea className="w-full whitespace-nowrap rounded-md border">
+            <ScrollArea className="h-[350px] w-full">
               <Table>
                 <TableHeader>
                   <TableRow>

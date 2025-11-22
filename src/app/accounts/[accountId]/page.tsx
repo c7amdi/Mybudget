@@ -178,17 +178,17 @@ export default function AccountDetailPage() {
   }
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-4">
       <PageHeader title={accountData.name} />
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2">
         <Card>
             <CardHeader>
                 <CardTitle>{t('accountDetail.balanceCardTitle')}</CardTitle>
                 <CardDescription>{t('accountDetail.balanceCardDescription')}</CardDescription>
             </CardHeader>
             <CardContent>
-                <div className="text-4xl font-bold font-headline">{getCurrencySymbol(accountData.currency)} {accountData.balance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                <div className="text-2xl font-bold font-headline">{getCurrencySymbol(accountData.currency)} {accountData.balance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
                  {accountData.currency !== baseCurrency && (
                     <p className="text-sm text-muted-foreground mt-1">
                         ~ {getCurrencySymbol(baseCurrency)}{' '}
@@ -233,8 +233,9 @@ export default function AccountDetailPage() {
                   <Button
                     id="date"
                     variant={"outline"}
+                    size="sm"
                     className={cn(
-                      "w-full sm:w-[300px] justify-start text-left font-normal",
+                      "w-full sm:w-auto justify-start text-left font-normal",
                       !dateRange && "text-muted-foreground"
                     )}
                   >
@@ -273,7 +274,7 @@ export default function AccountDetailPage() {
             <CardDescription className="mb-4">
               {t('accountDetail.chartDescription')}
             </CardDescription>
-            <ChartContainer config={chartConfig} className="h-[350px] w-full">
+            <ChartContainer config={chartConfig} className="h-[300px] w-full">
               <AreaChart accessibilityLayer data={chartData}>
                 <defs>
                   <linearGradient id="fillIncome" x1="0" y1="0" x2="0" y2="1">
@@ -344,7 +345,7 @@ export default function AccountDetailPage() {
           <CardDescription>{t('accountDetail.transactionsDescription')}</CardDescription>
         </CardHeader>
         <CardContent>
-          <ScrollArea className="w-full whitespace-nowrap rounded-md border">
+          <ScrollArea className="h-[400px] w-full">
             <Table>
               <TableHeader>
                 <TableRow>
